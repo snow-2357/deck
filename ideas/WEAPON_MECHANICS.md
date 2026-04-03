@@ -3,12 +3,12 @@
 ## Weapon Selection
 At the start of the game, the player selects their primary weapon. This choice determines their starting deck and unique reaction mechanics.
 
-### 1. The Sword (Melee/Counter)
+### 1. The Baseball Bat (Melee/Counter)
 Focuses on reliable defense and high-risk counter-attacks.
 
-*   **Attack (Basic):** Deals flat physical damage.
-*   **Defence (Basic):** Provides a flat amount of Block/Shield.
-*   **Parry (Reaction):**
+*   **Swing (Basic):** Deals flat physical damage.
+*   **Guard (Basic):** Provides a flat amount of Block/Shield.
+*   **Block (Reaction):**
     *   **Cost:** 1 Energy (or free, depending on balance).
     *   **Effect:** Playable with no immediate effect. It prepares the player for a "Parry" attempt on the enemy's next attack.
     *   **Trigger (Enemy Turn):** 

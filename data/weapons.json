@@ -1,0 +1,34 @@
+[
+  {
+    "id": "1",
+    "name": "Baseball Bat",
+    "description": "High defense and counter-attacks.",
+    "special_mechanic": "Parry",
+    "deck": [
+      {"name": "Swing", "count": 5, "cost": 1, "type": "Attack", "damage": 6},
+      {"name": "Guard", "count": 4, "cost": 1, "type": "Skill", "block": 5},
+      {"name": "Block", "count": 1, "cost": 1, "type": "Reaction", "description": "50% chance to negate damage and counter."}
+    ]
+  },
+  {
+    "id": "2",
+    "name": "Gun",
+    "description": "High damage and evasion.",
+    "special_mechanic": "Dodge",
+    "deck": [
+      {"name": "Shoot", "count": 5, "cost": 1, "type": "Attack", "damage": 8},
+      {"name": "Take Cover", "count": 4, "cost": 1, "type": "Skill", "block": 3},
+      {"name": "Dodge", "count": 1, "cost": 1, "type": "Reaction", "description": "50% chance to completely evade."}
+    ]
+  },
+  {
+    "id": "3",
+    "name": "Mace",
+    "description": "Heavy hitter with stun potential.",
+    "special_mechanic": "Parry",
+    "deck": [
+      {"name": "Bash", "count": 4, "cost": 2, "type": "Attack", "damage": 12},
+      {"name": "Brace", "count": 6, "cost": 1, "type": "Skill", "block": 6}
+    ]
+  }
+]
