@@ -27,11 +27,22 @@ Focuses on outputting damage while utilizing stealth and agility to avoid hits.
         *   **Success:** Complete evasion of the attack (Bullet Stop).
         *   **Failure:** Player takes full damage (or minimal mitigation).
 
+### 3. The Brass Knuckles (Brawler/Endurance)
+Street fighting style. High risk, high reward with self-damage and healing.
+
+*   **Hard Hit (Basic):** Deals high damage but also deals damage to the player.
+*   **Rage (Skill):** Heal a portion of HP.
+*   **Boxing Guard (Reaction):**
+    *   **Cost:** 1 Energy.
+    *   **Effect:** Enter an "Endure" stance.
+    *   **Trigger (Enemy Turn):** Take only 30% of incoming damage (70% reduction). Unlike Parry/Dodge, it's guaranteed reduction but you still take some damage.
+
 ## Implementation Logic (Reactions)
-1.  **Stance Activation:** Playing a "Parry" or "Dodge" card sets a `weapon_stance` flag on the Player object (e.g., `is_parrying = True`).
-2.  **Resolution Phase:** During the `Enemy Turn`, before damage is applied, the engine checks the `weapon_stance` flag.
-3.  **Random Roll:** If a stance is active, the engine rolls a percentage (e.g., `random.random() < 0.5`).
+1.  **Stance Activation:** Playing a "Parry", "Dodge", or "Endure" card sets a `active_stance` flag.
+2.  **Resolution Phase:** During the `Enemy Turn`, before damage is applied, the engine checks the `active_stance`.
+3.  **Random Roll (for Parry/Dodge):** If "Parry" or "Dodge" is active, the engine rolls (e.g., 50% chance).
 4.  **Damage Calculation:**
-    *   If **Success**: Damage is set to 0, and counter-effects are applied.
-    *   If **Failure**: Damage is multiplied by the penalty (0.8 for Parry, 1.0 for Dodge).
+    *   If **Success (Parry/Dodge)**: Damage is 0.
+    *   If **Failure (Parry/Dodge)**: Damage is mitigated (0.75 for Parry, 1.0 for Dodge).
+    *   If **Endure**: Damage is strictly 0.3x.
 5.  **Cleanup:** Reset the stance flags at the end of the enemy turn.

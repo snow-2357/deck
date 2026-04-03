@@ -22,6 +22,9 @@ class Character:
             self.health -= damage_to_health
             return damage_to_health
 
+    def heal_self(self, amount: int):
+        self.health = min(self.max_health, self.health + amount)
+
     def is_alive(self):
         return self.health > 0
 
@@ -35,7 +38,7 @@ class Player(Character):
         random.shuffle(self.draw_pile)
         self.hand: List[Card] = []
         self.discard_pile: List[Card] = []
-        self.active_stance: Optional[str] = None # "Parry" or "Dodge"
+        self.active_stance: Optional[str] = None # "Parry", "Dodge" or "Endure"
 
     def draw_cards(self, num: int):
         for _ in range(num):
@@ -71,6 +74,14 @@ class Player(Character):
                 # Apply Block
                 if card.block > 0:
                     self.block += card.block
+                
+                # Apply Heal
+                if card.heal > 0:
+                    self.heal_self(card.heal)
+                
+                # Apply Self Damage
+                if card.self_damage > 0:
+                    self.take_damage(card.self_damage)
                 
                 # Special effects (Reactions)
                 if card.type == "Reaction":

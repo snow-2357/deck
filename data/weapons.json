@@ -30,5 +30,16 @@
       {"name": "Bash", "count": 4, "cost": 2, "type": "Attack", "damage": 12},
       {"name": "Brace", "count": 6, "cost": 1, "type": "Skill", "block": 6}
     ]
+  },
+  {
+    "id": "4",
+    "name": "Brass Knuckles",
+    "description": "Brutal street fighting. High damage but hurts you too.",
+    "special_mechanic": "Endure",
+    "deck": [
+      {"name": "Hard Hit", "count": 5, "cost": 1, "type": "Attack", "damage": 12, "self_damage": 3, "description": "Deals massive damage but deals 3 to yourself."},
+      {"name": "Rage", "count": 2, "cost": 2, "type": "Skill", "heal": 8, "description": "Heal 8 HP in a fit of rage."},
+      {"name": "Boxing Guard", "count": 3, "cost": 1, "type": "Reaction", "description": "Take only 30% damage from the next attack."}
+    ]
   }
 ]

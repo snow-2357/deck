@@ -27,6 +27,9 @@ class CombatEngine:
                     damage = 0
                 else:
                     log.append(f"Dodge failed! {self.player.name} takes full damage.")
+            elif self.player.active_stance == "Endure":
+                log.append(f"Enduring! {self.player.name} takes only 30% damage.")
+                damage = int(damage * 0.3)
         
         actual_damage = self.player.take_damage(damage)
         log.append(f"{self.enemy.name} attacks for {damage} (Blocked: {damage - actual_damage})")

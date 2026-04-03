@@ -8,6 +8,8 @@ class Card:
     type: str  # "Attack", "Skill", "Power", "Reaction"
     damage: int = 0
     block: int = 0
+    heal: int = 0
+    self_damage: int = 0
     description: str = ""
     special_effect: Optional[Callable] = None
 
@@ -16,5 +18,7 @@ class Card:
         stats = []
         if self.damage > 0: stats.append(f"DMG:{self.damage}")
         if self.block > 0: stats.append(f"BLK:{self.block}")
+        if self.heal > 0: stats.append(f"HEAL:{self.heal}")
+        if self.self_damage > 0: stats.append(f"SELF-DMG:{self.self_damage}")
         stats_str = f" ({', '.join(stats)})" if stats else ""
         return f"[{self.name}] (Cost:{self.cost}){stats_str}{desc}"
