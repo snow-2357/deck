@@ -9,10 +9,12 @@ def clear_screen():
 
 def print_status(player, enemy, engine):
     print(f"\n--- TURN {engine.turn_count} ---")
+    print(f"ENEMY: {enemy.name} | {enemy.health}/{enemy.max_health} HP | Intent: {enemy.get_intent()}")
+    print(f"\n------")
     print(f"PLAYER: {player.health}/{player.max_health} HP | {player.block} BLK | {player.energy}/{player.max_energy} ENERGY")
+  
     if player.active_stance:
         print(f"STANCE: {player.active_stance}")
-    print(f"ENEMY: {enemy.name} | {enemy.health}/{enemy.max_health} HP | Intent: {enemy.get_intent()}")
     print("-" * 30)
     print("HAND:")
     for i, card in enumerate(player.hand):
@@ -21,7 +23,7 @@ def print_status(player, enemy, engine):
 
 def run_game():
     clear_screen()
-    print("=== DECK-BUILDER ROGUELIKE (CLI) ===")
+    print("=== DECK(CLI) ===")
     print("Select your weapon:")
     for key, weapon in WEAPONS.items():
         print(f"{key}: {weapon}")
